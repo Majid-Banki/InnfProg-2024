@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrays cheat sheet</title>
+    <title>Arrays cheat sheets</title>
 </head>
 <body>
     <h2>Arrayer</h2>
     <p>Dette juksearket funker best med konsollen åpen</p>
-    <h3>Filmarray (<span id="moviecount">0</span>filmer)</h3>
-    <p>Film på index 3: <span id="movetitle">?</span></p>
-    
+    <h3>filmarray (<span id="moviecount">0</span>)filmer</h3>
+    <p>Film på index 3: <span id="movietitle">?</span></p>
+ 
     <script>
-        //Opprette en array med filmtitler
-        const moviearray = ["Interstellar", "Top Gun", "Titantic", "Dum og dummere", "Cool runnings", "Pokemon", "Ikke krøll med Zohan"]
-        //Skriv ut film med index 3:
+        //opprette en aray med film titeler
+        const moviearray = ["interstellar", "Top gun", "Titanic", "dum og dummere", "cool running", "pokemon", "ikke krøll med zohan", "life of brian", "lorax", "biler", "istid", "shrek", "Toy story", "istrid 2", "istrid 3", "saving private ryan", "barbie", "hacksaw ridge", "Flåklypa"]
+       
+        //Å legge til et element på slutten av en array
+        moviearray.push("Taken")
+        //å slette en film (med bestemt index)
+        moviearray.splice(3, 1)
+        //sjekk etter et bestemt element i arrayen
+        const movieexists = moviearray.includes("dum og dummere")
+        console.log("finnes Titanic? " + movieexists)
+        //sortere en aray fra A-Å
+        moviearray.sort()
+        //sortere en aray fra Å-A
+        moviearray.reverse()
+ 
+        //array med tall
+        const numbersarray = [4, 78, 6, 90, 123, 5, 74]
+        //sortere array med tall, laveste tall først:
+        numbersarray.sort(function(a, b) {return a-b})
+        //hvis vi ønsker å sortere med høyeste tall først, la funksjonen retunere b - a
+ 
+        //skriv ut antall filmer:
+        document.getElementById("moviecount").innerHTML = moviearray.length
+        //skriv ut film med index 3:
         const index = 3
         document.getElementById("movietitle").innerHTML = moviearray[index]
-
         //Vis moviearray i konsoll:
         console.log(moviearray)
+        //vis numersarray i konsoll:
+        console.log(numbersarray)
     </script>
 </body>
 </html>
+ 
