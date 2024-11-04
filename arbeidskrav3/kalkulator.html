@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakterkalkulator</title>
+    <style>
+        /* Grunnleggende stil for nettsiden */
+        body {
+            font-family: Arial, sans-serif; /* Skrifttype for lesbarhet */
+            max-width: 600px; /* Begrenset bredde for å sentrere innholdet */
+            margin: 0 auto; /* Sentralisering av innhold horisontalt */
+            padding: 20px; /* Avstand rundt kanten av innholdet */
+            background-color: #e0f7fa; /* Lys blågrønn bakgrunnsfarge for hele nettsiden */
+        }
+
+        /* Sentrerer overskriften */
+        h1 {
+            text-align: center; /* Sentrerer overskriften horisontalt */
+        }
+
+        /* Stiler for kalkulator-skjemaet */
+        form {
+            display: flex; /* Bruker flexbox for layout */
+            flex-direction: column; /* Vertikal stabling av elementer */
+            gap: 10px; /* Mellomrom mellom felter */
+            background-color: white; /* Hvit bakgrunnsfarge for selve skjemaet */
+            padding: 20px; /* Indre polstring rundt skjemaet */
+            border-radius: 8px; /* Avrundede hjørner */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtil skyggeeffekt */
+        }
+
+        /* Stiler for input-felt og knapp */
+        input, button {
+            padding: 10px; /* Polstring inni input og knapp */
+            border: 1px solid #ddd; /* Lys grå kant */
+            border-radius: 4px; /* Avrundede hjørner */
+        }
+
+        /* Stil for knappen */
+        button {
+            background-color: #4CAF50; /* Grønn bakgrunnsfarge */
+            color: white; /* Hvit tekstfarge */
+            border: none; /* Fjerner standard kant */
+            cursor: pointer; /* Muspekeren blir til en hånd */
+        }
+
+        /* Hover-effekt for knappen */
+        button:hover {
+            background-color: #45a049; /* Mørkere grønn ved hover */
+        }
+
+        /* Stil for resultatvisningen */
+        #result {
+            margin-top: 20px; /* Avstand fra skjemaet */
+            font-weight: bold; /* Fet skrift */
+            padding: 10px; /* Polstring inni resultat-div */
+            background-color: #e7f3fe; /* Lys blå bakgrunn for resultatområdet */
+            border-radius: 4px; /* Avrundede hjørner */
+        }
+    </style>
+</head>
+<body>
+    <h1>Karakterkalkulator</h1>
+    <form id="gradeForm">
+        <label for="task1">Poeng oppnådd på oppgave 1 (maks 10):</label>
+        <input type="number" id="task1" min="0" max="10" required>
+        
+        <label for="task2">Poeng oppnådd på oppgave 2 (maks 12):</label>
+        <input type="number" id="task2" min="0" max="12" required>
+        
+        <button type="button" id="calculateBtn">Beregn karakter</button> 
+    </form>
+    <div id="result"></div>
+
+    <script>
+        // Karakterskalaen hentet fra oppgaveteksten
+        const grades = [
+            { grade: "F", treshold: 0 },
+            { grade: "E", treshold: 25 },
+            { grade: "D", treshold: 44 },
+            { grade: "C", treshold: 68 },
+            { grade: "B", treshold: 88 },
+            { grade: "A", treshold: 100 }
+        ];
+
+        // Henter knappen og resultat-div, kilde: https://www.w3schools.com/jsref/met_document_getelementbyid.asp
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resultDiv = document.getElementById('result');
+
+        // Lytter etter klikk på knappen, kilde: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+        calculateBtn.addEventListener('click', function() {
+            // Henter poengene fra input-feltene, kilde: https://www.w3schools.com/jsref/prop_text_value.asp
+            const task1Points = parseFloat(document.getElementById('task1').value) || 0;
+            const task2Points = parseFloat(document.getElementById('task2').value) || 0;
+
+            // Sjekker at poengene er innenfor gyldige grenser
+            if (task1Points < 0 || task1Points > 10 || task2Points < 0 || task2Points > 12) {
+                resultDiv.textContent = "Vennligst oppgi gyldige poeng for begge oppgavene.";
+                return; // Stopper funksjonen om verdier er utenfor tillatt område
+            }
+
+            // Beregner total prosentandel, kilde: https://www.w3schools.com/js/js_arithmetic.asp
+            const totalPercent = (0.3 * (task1Points / 10) * 100) + (0.7 * (task2Points / 12) * 100);
+
+            // Bruker en loop for å finne karakter basert på prosenten, kilde: https://www.w3schools.com/js/js_loop_for.asp
+            let grade = "F"; // Startverdi
+            for (let i = grades.length - 1; i >= 0; i--) {
+                if (totalPercent >= grades[i].treshold) {
+                    grade = grades[i].grade;
+                    break; // Avbryter loopen når riktig karakter er funnet
+                }
+            }
+
+            // Viser resultatet med to desimaler, kilde: https://www.w3schools.com/jsref/jsref_tofixed.asp
+            resultDiv.textContent = `Din karakter er: ${grade} (${totalPercent.toFixed(2)}%)`;
+        });
+    </script>
+</body>
+</html>

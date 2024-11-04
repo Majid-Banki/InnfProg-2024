@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="no">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Karakterkalkulator</title>
+
+    <style>
+
+        /* Grunnleggende stiler for hele dokumentet */
+
+        body {
+
+            font-family: Arial, sans-serif; /* Setter en lesbar skrifttype */
+
+            max-width: 600px; /* Begrenser bredden for bedre lesbarhet */
+
+            margin: 0 auto; /* Sentrerer innholdet horisontalt */
+
+            padding: 20px; /* Legger til litt avstand rundt kantene */
+
+            background-color: #f0f0f0; /* Lys grå bakgrunnsfarge */
+
+        }
+
+
+
+
+        /* Stiler for skjemaet */
+
+        form {
+
+            display: flex; /* Bruker flexbox for layout */
+
+            flex-direction: column; /* Stacker elementene vertikalt */
+
+            gap: 10px; /* Legger til mellomrom mellom form-elementene */
+
+            background-color: white; /* Hvit bakgrunn for skjemaet */
+
+            padding: 20px; /* Indre polstring */
+
+            border-radius: 8px; /* Avrundede hjørner */
+
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtil skyggeeffekt */
+
+        }
+
+
+
+
+        /* Stiler for input-felt og knapper */
+
+        input, button {
+
+            padding: 10px; /* Polstring inni elementene */
+
+            border: 1px solid #ddd; /* Tynn, lys grå kantlinje */
+
+            border-radius: 4px; /* Lett avrundede hjørner */
+
+        }
+
+
+
+
+        /* Spesifikke stiler for knappen */
+
+        button {
+
+            background-color: #4CAF50; /* Grønn bakgrunnsfarge */
+
+            color: white; /* Hvit tekst */
+
+            border: none; /* Fjerner standard kantlinje */
+
+            cursor: pointer; /* Endrer musepeker til hånd ved hover */
+
+        }
+
+
+
+
+        /* Hover-effekt for knappen */
+
+        button:hover {
+
+            background-color: #45a049; /* Mørkere grønn ved hover */
+
+        }
+
+
+
+
+        /* Stiler for resultat-visningen */
+
+        #result {
+
+            margin-top: 20px; /* Avstand fra skjemaet */
+
+            font-weight: bold; /* Fet skrift for å fremheve resultatet */
+
+            padding: 10px; /* Indre polstring */
+
+            background-color: #e7f3fe; /* Lys blå bakgrunn */
+
+            border-radius: 4px; /* Avrundede hjørner */
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Karakterkalkulator</h1>
+
+    <form id="gradeForm">
+
+        <label for="task1">Poeng oppnådd på oppgave 1 (maks 10):</label>
+
+        <input type="number" id="task1" min="0" max="10" required>
+
+        
+
+        <label for="task2">Poeng oppnådd på oppgave 2 (maks 12):</label>
+
+        <input type="number" id="task2" min="0" max="12" required>
+
+        
+
+        <button type="button" id="calculateButton">Beregn karakter</button> 
+
+    </form>
+
+    <div id="result"></div>
+
+
+
+
+    <script>
+
+        // Definerer karakterskalaen
+
+        // Hentet fra oppgaveteksten
+
+        const grades = [
+
+            {grade: "F", treshold: 0},
+
+            {grade: "E", treshold: 25},
+
+            {grade: "D", treshold: 44},
+
+            {grade: "C", treshold: 68},
+
+            {grade: "B", treshold: 88},
+
+            {grade: "A", treshold: 100}
+
+        ];
+
+
+
+
+        // Henter knappen og resultat-elementet
+
+        // Metode hentet fra W3Schools: https://www.w3schools.com/jsref/met_document_getelementbyid.asp
+
+        const calculateButton = document.getElementById('calculateButton');
+
+        const resultDiv = document.getElementById('result');
+
+
+
+
+        // Legger til en event listener for knappen
+
+        // Event handling inspirert av W3Schools: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+
+        calculateButton.addEventListener('click', function() {
+
+            // Henter inndataene fra skjemaet og konverterer til float
+
+            // parseFloat() metode fra W3Schools: https://www.w3schools.com/jsref/jsref_parsefloat.asp
+
+            const task1Points = parseFloat(document.getElementById('task1').value);
+
+            const task2Points = parseFloat(document.getElementById('task2').value);
+
+
+
+
+            // Sjekker om inndataene er gyldige
+
+            if (isNaN(task1Points) || isNaN(task2Points)) {
+
+                resultDiv.textContent = 'Vennligst fyll ut begge feltene med gyldige tall.';
+
+                return;
+
+            }
+
+
+
+
+            // Beregner total prosent
+
+            const totalPercent = calculateTotalPercent(task1Points, task2Points);
+
+
+
+
+            // Finner karakteren basert på prosenten
+
+            const grade = getGrade(totalPercent);
+
+
+
+
+            // Viser resultatet med to desimaler
+
+            // toFixed() metode fra W3Schools: https://www.w3schools.com/jsref/jsref_tofixed.asp
+
+            resultDiv.textContent = `Din karakter er: ${grade} (${totalPercent.toFixed(2)}%)`;
+
+        });
+
+
+
+
+        // Funksjon for å beregne total prosent
+
+        // Matematiske operasjoner inspirert av W3Schools: https://www.w3schools.com/js/js_arithmetic.asp
+
+        function calculateTotalPercent(task1Points, task2Points) {
+
+            const task1Percent = (task1Points / 10) * 100;
+
+            const task2Percent = (task2Points / 12) * 100;
+
+            return (0.3 * task1Percent) + (0.7 * task2Percent);
+
+        }
+
+
+
+
+        //Funksjon for å finne karakteren basert på prosenten
+
+        //if-else og for-loop struktur inspirert av W3Schools: https://www.w3schools.com/js/js_if_else.asp og https://www.w3schools.com/js/js_loop_for.asp
+
+        function getGrade(percent) {
+
+            // Sjekker om prosenten er under 25, som gir stryk (F)
+
+            if (percent < 25) {
+
+                return 'F';
+
+            }
+
+            
+
+            // Går gjennom karakterskalaen og returnerer riktig karakter
+
+            for (let i = grades.length - 1; i >= 0; i--) {
+
+                if (percent >= grades[i].treshold) {
+
+                    return grades[i].grade;
+
+                }
+
+            }
+
+            
+
+            return 'F'; // Returnerer F hvis ingen andre betingelser er oppfylt
+
+        }
+
+    </script>
+
+</body>
+
+</html>
