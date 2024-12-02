@@ -1,828 +1,1641 @@
 
-
-
-
-
-
-
-
-
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* For WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width for vertical scrollbars */
+  height: 10px; /* Adjust the height for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the scrollbar color */
+  border-radius: 10px; /* Make it rounded */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darken on hover */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the track */
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5%;
+}
+.container {
+  /* display: grid; */
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+  grid-template-columns: auto;
+}
+
+/* FORSIDE START */
+/* navigasjonen */
+.navigasjonsbar {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 100%;
+  margin-bottom: 1.5%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2.5%;
+  row-gap: 10px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #000;
+}
+
+.logo {
+  display: flex;
+  font-size: 40px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+}
+.logolink {
+  font-size: 40px;
+}
+
+.navliste {
+  list-style: none;
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: 100%;
+  text-align: center;
+  justify-content: left;
+  row-gap: 20px;
+  padding: 0;
+  margin: 0;
+
+}
+
+.navlisteikon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  row-gap: 10px;
+  padding: 0;
+  margin-top: 0%;
+}
+
+.søkefelt-ikon {
+  width: 70%;
+  position: relative;
+}
+
+.søkefelt {
+  height: 32px;
+  padding: 5%;
+  font-size: 12px;
+  width: 100%;
+  border-radius: 25px;
+  border: 1.5px solid black;
+  outline: none;
+}
+
+.søkeknapp {
+  font-size: 14px;
+  margin: 1%;
+  position: absolute;
+  right: 12px;
+  top: 23%;
+}
+
+/* styling for footer */
+
+.footer {
+  display: block;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0%;
+  border-top: 1.5px solid rgb(161, 161, 161);
+  font-size: 15px;
+}
+
+.footer-logo-seksjon {
+  p {
+    margin-top: 3%;
   }
-  
-  /* For WebKit browsers (e.g., Chrome, Safari) */
-  ::-webkit-scrollbar {
-    width: 10px; /* Adjust the width for vertical scrollbars */
-    height: 10px; /* Adjust the height for horizontal scrollbars */
+  .footer-logo {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 5px;
   }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Set the scrollbar color */
-    border-radius: 10px; /* Make it rounded */
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Darken on hover */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the track */
-  }
-  
-  body {
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 5%;
-  }
-  .container {
-    /* display: grid; */
-    grid-template-areas:
-      "header header header"
-      "main main main"
-      "footer footer footer";
-    grid-template-columns: auto;
-  }
-  /* navigasjonen */
-  .navigasjonsbar {
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: 100%;
-    margin-bottom: 1.5%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 2.5%;
-    row-gap: 10px;
-  }
-  
+}
+
+/* Footerseksjoner (kontakt, snarveier, sosiale medier) */
+.footerseksjoner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.footerseksjoner h4 {
+  margin-bottom: 10px; /* Litt plass under overskriften */
+}
+
+.footer-kort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1%;
+  width: 100%;
+}
+
+/* Fotlister - listen som inneholder informasjon */
+.sosialemedier-ikoner {
+  display: flex;
+  gap: 20px;
+  margin-top: 18px;
+}
+.fotlister {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   a {
-    text-decoration: none;
-    font-size: 18px;
     color: #000;
+    text-decoration: none;
   }
-  
-  .logo {
+}
+
+.fotlister-links {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.fotlister-links a {
+  font-size: 13px;
+}
+
+.kontakt-info {
+  li {
     display: flex;
-    font-size: 40px;
-    height: 70px;
-    justify-content: center;
-    align-items: center;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 10px;
+    i {
+      margin-right: 10px;
+    }
   }
-  .logolink {
-    font-size: 40px;
+}
+/*  */
+
+/*hovedinhold index.html  */
+.promoteringsslider {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 2%;
+  scrollbar-color: red;
+  scrollbar-width: 10px;
+  
+}
+
+.promotering {
+  background-size: cover;
+  height: 500px;
+  color: black;
+  background-color: rgb(185, 178, 178);
+  padding: 10%;
+  font-size: large;
+  /* margin-bottom: 5%; */
+  border-radius: 25px;
+  text-align: right;
+  position: relative;
+  padding-left: 10%;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+
+.promotering h2 {
+color: white;
+}
+
+.promotering p {
+  color: white;
+  }
+
+  .promotering2 {
+    background-size: cover;
+    height: 500px;
+    background-color: rgb(185, 178, 178);
+    display: none;
+    padding: 10%;
+    font-size: large;
+    /* margin-bottom: 5%; */
+    border-radius: 25px;
+    text-align: left;  
+    position: relative;
+    padding-right: 15%;
+    flex: 0 0 auto;
+    width: 100%;
+    .button{
+      background-color: black; /* Farge på knappen */
+      color: white; /* Tekstfarge */
+      &:hover {
+        background-color: white; /* Farge ved hover */
+        color: black;
+      }
+    }
+  }
+
+  .promotering2 h2 {
+  color: white;
   }
   
+  .promotering2 p {
+    color: white;
+    }
+  
+
+
+
+
+
+
+
+.button {
+  display: inline-block;
+  padding: 17px 20px;
+  background-color: white; /* Farge på knappen */
+  color: black; /* Tekstfarge */
+  border-radius: 1000px;
+  text-decoration: none; /* Fjerner understrek på lenker */
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.button:hover {
+  background-color: #030303; /* Farge ved hover */
+  color: white;
+}
+
+.piler-venstre {
+  background-color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 15px 15px;
+  border-radius: 50%;
+  opacity: 60%;
+  position: absolute;
+  left: 1%;
+  top: 45%;
+  display: none;
+}
+
+.piler-høyre {
+  background-color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 15px 15px;
+  border-radius: 50%;
+  opacity: 60%;
+  position: absolute;
+  right: 1%;
+  top: 45%;
+  display: none;
+}
+
+.reklame {
+  text-align: center;
+}
+
+.reklame h2 {
+  font-size: 33px;
+}
+
+.reklame p {
+  margin: 0%;
+  padding: 0%;
+}
+
+.bokser {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8%;
+  margin-top: 8%;
+  gap: 2%;
+  margin-left: 0%;
+}
+
+.boks {
+  height: 50px;
+  width: 60%;
+  flex-direction: row;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.boks:hover {
+  background-color: #555;
+  color: white;
+}
+
+.bokser li:first-child {
+  color: rgb(255, 255, 255);
+  background-color: rgb(48, 48, 48);
+}
+
+.bokser li:first-child:hover {
+  color: rgb(255, 255, 255);
+  background-color: #555;
+}
+
+/* produkter */
+
+.produktbilde {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.produktnavn {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 1%;
+}
+
+.produkt-navn-pris {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 8%;
+  margin-top: 2%;
+}
+
+.produktpriser {
+  font-size: 18px;
+  margin: 1%;
+  font-weight: normal;
+}
+
+.produktseksjoner {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: space-between;
+  margin-bottom: 8%;
+  row-gap: 40px;
+}
+
+.produktseksjonerarticle {
+  position: relative;
+}
+.favorit-ikon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 2%;
+  font-size: 20px;
+  background-color: gainsboro;
+  border-radius: 100%;
+  color: white;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.favorit-ikonlignende {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 2.5%;
+  font-size: 20px;
+  background-color: gainsboro;
+  border-radius: 100%;
+  color: white;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.favorit-ikonlignende:hover {
+  background-color: rgb(238, 115, 115);
+}
+
+.favorit-ikon:hover {
+  background-color: rgb(238, 115, 115);
+}
+
+/*  */
+
+
+.kategori-kort {
+  position: relative;
+  border-radius: 25px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 0;
+  overflow: hidden;
+
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: brightness(70%);
+    /* opacity: 0.4; */
+    z-index: 1;
+  }
+  h3{
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    color: white;
+  }
+}
+
+.kategori {
+  text-align: center;
+}
+
+.Kategorieoverskrift {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 15%;
+}
+
+.kategoribilder {
+  display: grid;
+  /* grid-template-columns: 33% 33% 33%; */
+  grid-template-columns: 100%; /* 4 equal columns */
+  gap: 12px;
+  /* grid-auto-rows: 20px; */
+  margin-top: 5%;
+}
+
+
+.kategori-kort:nth-child(3) {
+  grid-row: span 37;
+  
+}
+
+
+/* anmeldelser */
+.anmeldelseroverskrift {
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  align-items: center;
+  font-size: 35px;
+  margin-top: 60px;
+}
+
+.anmeldelser {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 4%;
+  border-radius: 20px;
+  row-gap: 5px;
+  margin: 1%;
+}
+
+.anmeldelseseksjon {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5%;
+  max-width: 100vw;
+  overflow-x: scroll;
+  margin-bottom: 10%;
+}
+.anmeldelseseksjon > * {
+  flex-shrink: 0;
+  width: 265px;
+}
+
+.anmeldelsesbilde {
+  border-radius: 50%;
+  height: 100px;
+}
+
+.anmeldelsenavn {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.anmeldelse {
+  margin-top: 5%;
+}
+
+/* FORSIDE FINISH */
+
+
+/* PRODUKT START */
+
+.menylinjen {
+  display: flex;
+  gap: 2%;
+  font-size: 20px;
+}
+
+.menylinjen a {
+  display: flex;
+  gap: 2%;
+  font-size: 20px;
+}
+
+.lignendeprodukter {
+  text-align: center;
+}
+
+.produktdetaljer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.merkenavn {
+  font-size: 20px;
+  margin: 1%;
+}
+
+.farge {
+  font-size: 20px;
+  margin: 1%;
+}
+
+/*  */
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.handlekurvoverskrift {
+  text-align: center;
+}
+
+.shippingoverskrift {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.shippingoverskrift input {
+  height: 35px;
+}
+
+.shippingoverskrift button {
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 35px;
+}
+
+.shippingforslag {
+  font-size: 20px;
+}
+
+.shipping {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  margin-top: 10px;
+}
+
+/*  product page CSS  */
+
+.produktdetal {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.produktimgseksjon {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 5px;
+  grid-auto-rows: 15.9px;
+}
+.produktimg {
+  height: 100%;
+  width: 100%;
+}
+
+.produktimg:nth-child(1) {
+  grid-row: span 7;
+}
+
+.produktimg:nth-child(2) {
+  grid-row: span 21;
+}
+
+.produktimg:nth-child(3) {
+  grid-row: span 7;
+}
+
+.produktimg:nth-child(4) {
+  grid-row: span 7;
+}
+
+/* General Styling */
+
+.produkt-beholder {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 15px;
+  overflow-y: scroll;
+  scrollbar-width: none; 
+   -ms-overflow-style: none; 
+}
+.produkt-beholder::-webkit-scrollbar {
+  display: none; 
+}
+
+.produkt-overskrift {
+  margin-bottom: 10px;
+}
+
+.produkt-tittel {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 0%;
+}
+
+.merke-navn {
+  font-size: 20px;
+  color: gray;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.pris-detaljer {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.farge-info {
+  font-size: 18px;
+  margin-bottom: 45px;
+}
+
+.farge-navn {
+  font-weight: bold;
+}
+
+/* Size Selection Form */
+.størrelse-skjema {
+  margin-bottom: 20px;
+}
+
+.størrelse-etikett {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.størrelse-nedtrekksliste {
+  width: 100%;
+  padding: 15px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  background-color: #e1e1e1;
+  height: 50px;
+  color: black;
+}
+
+.størrelse-nedtrekksliste:hover {
+  border: 2px solid black;
+}
+
+.størrelse-nedtrekksliste option {
+  background-color: #e9e9e9; /* Red with 10% opacity */
+}
+
+/* Buttons */
+.handlekurv-knapp {
+  display: block;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.handlekurv-knapp:hover {
+  background-color: #555;
+}
+
+.ønskeliste-knapp {
+  display: flex;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255);
+  /* width: 46px; */
+  height: 46px; 	
+  padding:14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.knapp {
+  font-size: 18px;
+}
+
+.knapp:hover {
+  color: red;
+}
+
+/* Divider Line */
+.delelinje {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* Accordion */
+.trekkspill-beholder {
+  margin-top: 15px;
+  border-top: 1px solid black;
+}
+
+.trekkspill-beholder li {
+  margin-top: 1%;
+  list-style: disc;
+  margin-left: 10%;
+}
+
+.trekkspill-beholderdetails {
+  border-bottom: 1px solid black;
+}
+
+/* pilene i produktsiden */
+
+.trekkspill-tittel {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 25px 0px 25px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  list-style: none;
+  border: none;
+}
+
+.trekkspill-tittell {
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 25px 0px 25px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  list-style: none;
+  border: none;
+  justify-content: space-between;
+}
+
+.trekkspill-tittell li {
+  list-style: none;
+  margin: 0;
+}
+
+.trekkspill-tittel::after {
+  content: "+";
+  float: right;
+}
+
+.trekkspill-innhold {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Reviews */
+.anmeldelser-beholder {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 16px;
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+.stjerner-visning {
+  color: black;
+  font-size: 18px;
+}
+
+.anmeldelser-antall {
+  color: gray;
+}
+
+.lignendeprodukt {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+  max-width: 100vw;
+  overflow-x: scroll;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
+  margin-top: 3% ;
+}
+
+.lignendeprodukt > * {
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.lignendeprodukteroverskrift {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.lignendeprodukteroverskrift p {
+  display: flex;
+  flex-wrap: wrap;
+  color: #6a1b9a;
+}
+
+/* Check Out Page CSS */
+
+/* Shopping Cart Section */
+.handlekurv {
+  display: flex;
+  margin: 20px 0;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  /* border: 1px solid rgb(230, 225, 225); */
+  padding-bottom: 4%;
+  padding-top: 5%;
+  row-gap: 1px;
+}
+
+.kurvknapp {
+  display: flex;
+  gap: 1%;
+}
+
+.handlekurv-overskrift {
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 1%;
+}
+
+.produktliste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Individual Product Row */
+.produkt-rad {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: 20px;
+  justify-content: center;
+  width: 300px;
+}
+
+
+.produkt-detaljer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.produktvalg {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.størrelse,
+.antall {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.antall-felt {
+  width: 60px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  height: 50px;
+}
+
+.antall-felt::-webkit-inner-spin-button,
+.antall-felt::-webkit-outer-spin-button {
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+/* Icons */
+.produkt-ikoner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 20px;
+  row-gap: 15px;
+  gap: 15px;
+  width:60%;
+}
+
+.slett-knapp {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.trash-ikon {
+  color: black;
+}
+
+.slett-knapp {
+  color: red;
+}
+
+/* checkout address section */
+
+/* Section Styling */
+
+.shoppingbag {
+  margin: 20px 0;
+  width: 100%;
+  border: 1px solid rgb(230, 225, 225);
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.opplysninger {
+  margin: 20px 0;
+  width: 100%;
+  border: 1px solid rgb(230, 225, 225);
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.opplysninger-overskrift {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-left: 2%;
+}
+
+/* Form Styling */
+.adresse-skjema {
+  display: grid;
+  gap: 20px;
+  /* max-width: 600px; */
+  margin: 0 auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.leveringsadresse,
+.kontaktinformasjon {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 15px;
+  width: 250px;
+}
+
+.adresse-tittel,
+.kontakt-tittel {
+  font-size: 18px;
+  font-weight: bold;
+  grid-column: span 2;
+  margin-bottom: 10px;
+}
+
+.felt-rad {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  width: 100%;
+}
+
+.felt-rad1 {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  width: 100%;
+}
+
+.felt-rad2 {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  width: 100%;
+}
+
+.felt-rad-full {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  margin-bottom: 1%;
+  
+}
+
+.etikett {
+  font-size: 14px;
+  margin-bottom: 5px;
+  
+}
+
+.felt {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Button Styling */
+.knapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+  row-gap: 40px;
+}
+
+.lagre-knapp {
+  background-color: rgb(58, 58, 58);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.avbryt-lenke {
+  font-size: 16px;
+  color: blue;
+  text-decoration: underline;
+  align-self: center;
+  cursor: pointer;
+}
+
+/* checkout section 3 */
+
+/* Section Styling */
+.levering {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  align-items: center;
+  border: 1px solid rgb(230, 225, 225);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 100%;
+}
+
+.levering-overskrift {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 2%;
+  width: 100%;
+}
+
+.kontaktinformasjon {
+  margin-top: 80px;
+}
+
+.levering-underoverskrift {
+  font-size: 20px;
+  font-weight: bold;
+  /* margin-bottom: 40px; */
+  margin-left: 2%;
+  width: 100%;
+}
+
+/* Fieldset Styling */
+.leveringsvalg {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+}
+
+.leveringsvalg-tittel {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Radio Button Styling */
+.valg-radio {
+  position: absolute;
+}
+
+/* Label Styling */
+.valg-etikett {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.valg-etikett:hover {
+  /* background-color: #f9f9f9; */
+  border-color: black;
+}
+
+.valg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding-left: 1%;
+}
+
+.valg-tittel {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.valg-pris {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.valg-info {
+  font-size: 14px;
+  font-weight: bold;
+  color: gray;
+  margin: 0;
+}
+
+.valg-beskrivelse {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* Radio Button Visuals */
+.valg-radio {
+  position: absolute;
+  visibility: visible;
+  margin-right: 10px;
+  transform: translateY(15px);
+}
+
+/* checkout section 4 */
+
+/* Section Styling */
+
+/* Section Styling */
+.betaling {
+  margin: 20px 0;
+  border: 1px solid rgb(230, 225, 225);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-bottom: 5%;
+  width:100%
+}
+
+.betaling-overskrift {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 2%;
+}
+
+/* Form Styling */
+.betalingsskjema {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* Card Details */
+.kortdetaljer {
+  border: none;
+  padding: 0;
+}
+
+.kortdetaljer-tittel {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+.felt-rad-rad {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.etikett {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.stars{
+  display: flex;
+  gap: 2px;
+  li{
+    list-style: none;
+    margin: 0;
+  }
+}
+
+.felt {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Payment Total */
+.belop {
+  text-align: center;
+  margin: 1px 0;
+}
+
+.belop-tekst {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.belop-verdi {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Purchase Button */
+.kjøp-knapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.fullfør-knapp {
+  background-color: rgb(58, 58, 58);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  
+}
+
+/* Terms and Conditions */
+.betingelser {
+  display: flex;
+  margin-top: 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.betingelser-tekst {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.samtykke {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 5%;
+}
+
+.samtykke-valg {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.samtykke-kryss {
+  margin-right: 10px;
+}
+
+.checkoutbilde {
+  height: 250px;
+  width: 170px;
+}
+
+.størrelsestabel {
+  font-size: 14px;
+}
+
+.review-kort {
+  background-color: #fff;
+  border-radius: 35px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #ddd;
+  margin-bottom: 5%;
+}
+
+.review-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.handlekurv-kasse {
+  text-align: center;
+  margin-bottom: 8%;
+}
+
+.handlekurv-arrow {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  color: #6a1b9a;
+  font-weight: 400;
+}
+
+.handlekurv-arrowikon {
+  color: #6a1b9a;
+}
+
+.handlekurv-arrow a {
+  color: #6a1b9a;
+}
+
+/* min800 */
+@media screen and (min-width: 1024px) {
+  .navigasjonsbar {
+    display: grid;
+    grid-template-columns: 30% 50% 15%;
+    margin-bottom: 5%;
+    justify-content: left;
+    align-items: center;
+    gap: 2.5%;
+  }
   .navliste {
     list-style: none;
     display: grid;
-    flex-direction: column;
-    grid-template-columns: 100%;
+    grid-template-columns: 12% 20% 23% 20% 25%;
     text-align: center;
     justify-content: left;
-    row-gap: 20px;
     padding: 0;
     margin: 0;
-  
+    height: 70px;
+    align-items: center;
   }
-  
   .navlisteikon {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    row-gap: 10px;
+    justify-content: right;
+    gap: 10%;
     padding: 0;
-    margin-top: 0%;
+    margin: 0;
   }
-  
+
   .søkefelt-ikon {
     width: 70%;
     position: relative;
   }
-  
-  .søkefelt {
-    height: 32px;
-    padding: 5%;
-    font-size: 12px;
-    width: 100%;
-    border-radius: 25px;
-    border: 1.5px solid black;
-    outline: none;
-  }
-  
+
   .søkeknapp {
     font-size: 14px;
     margin: 1%;
     position: absolute;
     right: 12px;
-    top: 23%;
+    top: 25%;
   }
-  
-  /* styling for footer */
-  
-  .footer {
-    display: block;
+
+  .felt-rad {
+    display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 30px;
-    border-top: 1.5px solid rgb(161, 161, 161);
+    grid-column: span 1;
+    gap: 5px;
+  }
+  .felt-rad1 {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+    gap: 5px;
+    height: 80px;
+  }
+
+  .felt-rad2 {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+    gap: 5px;
+    height: 80px;
+    margin-top: 4%;
   }
   
-  .footer-logo-seksjon {
-    p {
-      margin-top: 0;
-    }
-    .footer-logo {
-      font-size: 25px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
+  .felt-rad-full {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    grid-column: span 2;
   }
-  
-  /* Footerseksjoner (kontakt, snarveier, sosiale medier) */
+
   .footerseksjoner {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    flex-direction: column;
+    flex-direction: row;
   }
-  
-  .footerseksjoner h4 {
-    margin-bottom: 10px; /* Litt plass under overskriften */
-  }
-  
-  /* Fotlister - listen som inneholder informasjon */
-  .sosialemedier-ikoner {
+  .footer-kort {
     display: flex;
-    gap: 20px;
-    margin-top: 18px;
+    flex-direction: row;
+    justify-content: left;
+    gap: 20%;
+    width: 80%;
   }
-  .fotlister {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    a {
-      color: #000;
-      text-decoration: none;
-    }
+
+  .footer {
+    font-size: 20px;
   }
-  
-  .fotlister-links {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-  }
-  
+
   .fotlister-links a {
-    font-size: 13px;
+    font-size: 17px;
   }
-  
-  .kontakt-info {
-    li {
-      display: flex;
-      align-items: baseline;
-      gap: 5px;
-      margin-bottom: 10px;
-      i {
-        margin-right: 10px;
-      }
-    }
+
+  .overskrifter {
+    font-weight: 500;
   }
-  /*  */
-  
-  /*hovedinhold index.html  */
-  .promoteringsslider {
-    display: flex;
-    width: 100%;
-    overflow-x: scroll;
-    gap: 2%;
-    scrollbar-color: red;
-    scrollbar-width: 10px;
-    
-  }
-  
-  .promotering {
-    background-size: cover;
-    height: 500px;
-    color: black;
-    background-color: rgb(185, 178, 178);
-    padding: 10%;
-    font-size: large;
-    /* margin-bottom: 5%; */
-    border-radius: 25px;
-    text-align: right;
-    position: relative;
-    padding-left: 10%;
-    flex: 0 0 auto;
-    width: 100%;
-  }
-  
-  
-  .promotering h2 {
-  color: white;
-  }
-  
-  .promotering p {
-    color: white;
-    }
-  
-    .promotering2 {
-      background-image: url("https://cdn.pixabay.com/photo/2020/05/03/19/09/nike-5126389_1280.jpg");
-      background-size: cover;
-      height: 500px;
-      background-color: rgb(185, 178, 178);
-      padding: 10%;
-      font-size: large;
-      /* margin-bottom: 5%; */
-      border-radius: 25px;
-      text-align: left;  
-      position: relative;
-      padding-right: 15%;
-      flex: 0 0 auto;
-      width: 100%;
-      .button{
-        background-color: black; /* Farge på knappen */
-        color: white; /* Tekstfarge */
-        &:hover {
-          background-color: white; /* Farge ved hover */
-          color: black;
-        }
-      }
-    }
-    
-    
-    .promotering2 h2 {
-    color: white;
-    }
-    
-    .promotering2 p {
-      color: white;
-      }
-    
-  
-  .button {
-    display: inline-block;
-    padding: 17px 20px;
-    background-color: white; /* Farge på knappen */
-    color: black; /* Tekstfarge */
-    border-radius: 1000px;
-    text-decoration: none; /* Fjerner understrek på lenker */
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .button:hover {
-    background-color: #030303; /* Farge ved hover */
-    color: white;
-  }
-  
-  .piler-venstre {
-    background-color: rgb(255, 255, 255);
-    font-size: 20px;
-    padding: 15px 15px;
-    border-radius: 50%;
-    opacity: 60%;
-    position: absolute;
-    left: 1%;
-    top: 45%;
-  }
-  
-  .piler-høyre {
-    background-color: rgb(255, 255, 255);
-    font-size: 20px;
-    padding: 15px 15px;
-    border-radius: 50%;
-    opacity: 60%;
-    position: absolute;
-    right: 1%;
-    top: 45%;
-  }
-  
-  .reklame {
-    text-align: center;
-  }
-  
-  .reklame h2 {
-    font-size: 33px;
-  }
-  
-  .reklame p {
-    margin: 0%;
-    padding: 0%;
-  }
-  
+
+
+
   .bokser {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
     margin-top: 2%;
-    gap: 2%;
-    margin-left: 0%;
+    gap: 1.2%;
   }
-  
+
   .boks {
     height: 50px;
-    width: 60%;
+    width: 12.5%;
     flex-direction: row;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    font-size: 12px;
-    cursor: pointer;
+    font-size: 16px;
   }
-  
-  .boks:hover {
-    background-color: #555;
-    color: white;
+
+  .produktseksjoner {
+    display: grid;
+    grid-template-columns: 32.5% 32.5% 32.5%;
+    justify-content: space-between;
+    margin-bottom: 8%;
+    row-gap: 60px;
   }
-  
-  .bokser li:first-child {
-    color: rgb(255, 255, 255);
-    background-color: rgb(48, 48, 48);
-  }
-  
-  .bokser li:first-child:hover {
-    color: rgb(255, 255, 255);
-    background-color: #555;
-  }
-  
-  /* produkter */
+
+  .produktseksjonerarticle:hover {
+    transform: scale(1.05);
+    filter: brightness(110%);
+}
   
   .produktbilde {
     width: 100%;
     border-radius: 25px;
   }
-  
-  .produktnavn {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 1%;
-  }
-  
-  .produkt-navn-pris {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-bottom: 8%;
-    margin-top: 2%;
-  }
-  
-  .produktpriser {
-    font-size: 18px;
-    margin: 1%;
-    font-weight: normal;
-  }
-  
-  .produktseksjoner {
-    display: grid;
-    grid-template-columns: 100%;
-    justify-content: space-between;
-    margin-bottom: 8%;
-    row-gap: 40px;
-  }
-  
-  .produktseksjonerarticle {
-    position: relative;
-  }
-  
-  .favorit-ikon {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    padding: 2%;
-    font-size: 20px;
-    background-color: gainsboro;
-    border-radius: 100%;
-    color: white;
-    height: 32px;
-    width: 32px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .favorit-ikonlignende {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    padding: 2.5%;
-    font-size: 20px;
-    background-color: gainsboro;
-    border-radius: 100%;
-    color: white;
-    height: 32px;
-    width: 32px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .favorit-ikonlignende:hover {
-    background-color: rgb(238, 115, 115);
-  }
-  
-  .favorit-ikon:hover {
-    background-color: rgb(238, 115, 115);
-  }
-  
-  /*  */
-  
-  
-  .kategori-kort {
-    position: relative;
-    border-radius: 25px;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 130px 0;
-    overflow: hidden;
-  
-    &::after{
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      filter: brightness(70%);
-      /* opacity: 0.4; */
-      z-index: 1;
-    }
-    h3{
-      position: relative;
-      z-index: 2;
-      padding: 0;
-      margin: 0;
-      color: white;
-    }
-  }
-  
-  .kategori {
-    text-align: center;
-  }
-  
+
   .Kategorieoverskrift {
-    font-size: 25px;
+    font-size: 35px;
   }
+
+  .kategoribilder {
+    display: grid;
+    /* grid-template-columns: 33% 33% 33%; */
+    grid-template-columns: repeat(3, 1fr); /* 4 equal columns */
+    gap: 12px;
+    grid-auto-rows: 20px;
+    margin-top: 5%;
+  }
+
+  .kategori-kort:nth-child(1) {
+    grid-row: span 10;
+  }
+  .kategori-kort:nth-child(2) {
+    grid-row: span 10;
+  }
+  .kategori-kort:nth-child(3) {
+    grid-row: span 15;
+  }
+  .kategori-kort:nth-child(4) {
+    grid-column: span 2;
+    grid-row: span 14;
+  }
+  .kategori-kort:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 9;
+  }
+
   
-  /* anmeldelser */
   .anmeldelseroverskrift {
     display: flex;
     justify-content: left;
     text-align: center;
     align-items: center;
     font-size: 35px;
-    margin-top: 180px;
+    margin-top: 35px;
   }
-  
-  .anmeldelser {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding: 4%;
-    border-radius: 20px;
-    row-gap: 5px;
-    margin: 1%;
-  }
-  
+
   .anmeldelseseksjon {
-    display: grid;
-    justify-content: space-between;
-    margin-top: 2%;
-    margin-bottom: 5%;
-    grid-template-columns: 100%;
-  }
-  
-  .anmeldelsesbilde {
-    border-radius: 50%;
-    height: 100px;
-  }
-  
-  .anmeldelsenavn {
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-  
-  .anmeldelse {
-    margin-top: 5%;
-  }
-  
-  /*  */
-  
-  /* hovedinhold produktsiden () */
-  
-  .menylinjen {
     display: flex;
-    gap: 2%;
-    font-size: 20px;
+    flex-direction: row;
+    gap: 0%;
+    max-width: 100vw;
+    overflow-x: scroll;
   }
-  
-  .menylinjen a {
-    display: flex;
-    gap: 2%;
-    font-size: 20px;
+
+  .anmeldelseseksjon > * {
+    flex-shrink: 0;
+    width: 265px;
   }
-  
-  .lignendeprodukter {
-    text-align: center;
-  }
-  
-  .produktdetaljer {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .merkenavn {
-    font-size: 20px;
-    margin: 1%;
-  }
-  
-  .farge {
-    font-size: 20px;
-    margin: 1%;
-  }
-  
-  /*  */
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    list-style: none;
-  }
-  
-  .handlekurvoverskrift {
-    text-align: center;
-  }
-  
-  .shippingoverskrift {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-  }
-  
-  .shippingoverskrift input {
-    height: 35px;
-  }
-  
-  .shippingoverskrift button {
-    background-color: black;
-    color: white;
-    width: 100px;
-    height: 35px;
-  }
-  
-  .shippingforslag {
-    font-size: 20px;
-  }
-  
-  .shipping {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-    margin-top: 10px;
-  }
-  
-  /*  product page CSS  */
-  
+
+.anmeldelser:hover {
+  transform: scale(1.1); 
+  filter: brightness(120%); 
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+
+
+
+
+
+
+
+
+
   .produktdetal {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 60% 40%;
+    gap: 0%;
+    height: 670px;
   }
-  
-  .produktimgseksjon {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    gap: 5px;
-    grid-auto-rows: 15.9px;
-  }
-  .produktimg {
-    height: 100%;
-    width: 100%;
-  }
-  
-  .produktimg:nth-child(1) {
-    grid-row: span 7;
-  }
-  
-  .produktimg:nth-child(2) {
-    grid-row: span 21;
-  }
-  
-  .produktimg:nth-child(3) {
-    grid-row: span 7;
-  }
-  
-  .produktimg:nth-child(4) {
-    grid-row: span 7;
-  }
-  
-  /* General Styling */
-  
-  .produkt-beholder {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 15px;
-    overflow-y: scroll;
-    scrollbar-width: none; 
-     -ms-overflow-style: none; 
-  }
-  .produkt-beholder::-webkit-scrollbar {
-    display: none; 
-  }
-  
-  .produkt-overskrift {
-    margin-bottom: 10px;
-  }
-  
-  .produkt-tittel {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-top: 0%;
-  }
-  
-  .merke-navn {
-    font-size: 20px;
-    color: gray;
-    margin-bottom: 15px;
-    text-decoration: underline;
-  }
-  
-  .pris-detaljer {
-    font-size: 20px;
-    font-weight: normal;
-    margin-bottom: 15px;
-  }
-  
-  .farge-info {
-    font-size: 18px;
-    margin-bottom: 45px;
-  }
-  
-  .farge-navn {
-    font-weight: bold;
-  }
-  
-  /* Size Selection Form */
-  .størrelse-skjema {
-    margin-bottom: 20px;
-  }
-  
-  .størrelse-etikett {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .størrelse-nedtrekksliste {
-    width: 100%;
-    padding: 15px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
-    background-color: #e1e1e1;
-    height: 50px;
-    color: black;
-  }
-  
-  .størrelse-nedtrekksliste:hover {
-    border: 2px solid black;
-  }
-  
-  .størrelse-nedtrekksliste option {
-    background-color: #e9e9e9; /* Red with 10% opacity */
-  }
-  
-  /* Buttons */
-  .handlekurv-knapp {
-    display: block;
-    width: 100%;
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-  }
-  
-  .handlekurv-knapp:hover {
-    background-color: #555;
-  }
-  
-  .ønskeliste-knapp {
-    display: flex;
-    border: 1px solid black;
-    background-color: rgba(255, 255, 255);
-    /* width: 46px; */
-    height: 46px; 	
-    padding:14px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .knapp {
-    font-size: 18px;
-  }
-  
-  .knapp:hover {
-    color: red;
-  }
-  
-  /* Divider Line */
-  .delelinje {
-    margin: 20px 0;
-    border: none;
-    border-top: 1px solid #ddd;
-  }
-  
-  /* Accordion */
-  .trekkspill-beholder {
-    margin-top: 15px;
-    border-top: 1px solid black;
-  }
-  
-  .trekkspill-beholder li {
-    margin-top: 1%;
-    list-style: disc;
-    margin-left: 10%;
-  }
-  
-  .trekkspill-beholderdetails {
-    border-bottom: 1px solid black;
-  }
-  
-  /* pilene i produktsiden */
-  
-  .trekkspill-tittel {
-    font-size: 15px;
-    font-weight: bold;
-    padding: 25px 0px 25px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-    list-style: none;
-    border: none;
-  }
-  
-  .trekkspill-tittell {
-    display: flex;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 25px 0px 25px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-    list-style: none;
-    border: none;
-    justify-content: space-between;
-  }
-  
-  .trekkspill-tittell li {
-    list-style: none;
-    margin: 0;
-  }
-  
-  .trekkspill-tittel::after {
-    content: "+";
-    float: right;
-  }
-  
-  .trekkspill-innhold {
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  /* Reviews */
-  .anmeldelser-beholder {
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    font-size: 16px;
-    padding-top: 15px;
-    font-weight: bold;
-  }
-  
-  .stjerner-visning {
-    color: black;
-    font-size: 18px;
-  }
-  
-  .anmeldelser-antall {
-    color: gray;
-  }
-  
+
   .lignendeprodukt {
     display: flex;
     flex-direction: row;
@@ -830,791 +1643,160 @@
     max-width: 100vw;
     overflow-x: scroll;
     margin-bottom: 5%;
-    padding-bottom: 5%;
-    margin-top: 3% ;
+    padding-bottom: 1%;
   }
-  
-  .lignendeprodukt > * {
-    flex-shrink: 0;
-    width: 240px;
-  }
-  
+
   .lignendeprodukteroverskrift {
     display: flex;
-    flex-wrap: wrap;
-  }
-  
-  
-  .lignendeprodukteroverskrift p {
-    display: flex;
-    flex-wrap: wrap;
-    color: #6a1b9a;
-  }
-  
-  /* Check Out Page CSS */
-  
-  /* Shopping Cart Section */
-  .handlekurv {
-    display: flex;
-    margin: 20px 0;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid rgb(230, 225, 225);
-    padding-bottom: 4%;
-    padding-top: 5%;
   }
-  
-  .kurvknapp {
-    display: flex;
-    gap: 1%;
+
+  .produktimgseksjon {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 15px;
+    grid-auto-rows: 15.9px;
+    height: 600px;
   }
-  
-  .handlekurv-overskrift {
+
+  .promotering2 {
+    background-image: url("https://cdn.pixabay.com/photo/2020/05/03/19/09/nike-5126389_1280.jpg");
+    background-size: cover;
+    height: 500px;
+    background-color: rgb(185, 178, 178);
+    display: block;
+    padding: 10%;
+    font-size: large;
+    /* margin-bottom: 5%; */
+    border-radius: 25px;
+    text-align: left;  
+    position: relative;
+    padding-right: 15%;
+    flex: 0 0 auto;
     width: 100%;
+    .button{
+      background-color: black; /* Farge på knappen */
+      color: white; /* Tekstfarge */
+      &:hover {
+        background-color: white; /* Farge ved hover */
+        color: black;
+      }
+    }
+  }
+  
+  
+  .promotering2 h2 {
+  color: white;
+  }
+  
+  .promotering2 p {
+    color: white;
+    }
+
+    .piler-venstre {
+      background-color: rgb(255, 255, 255);
+      font-size: 20px;
+      padding: 15px 15px;
+      border-radius: 50%;
+      opacity: 60%;
+      position: absolute;
+      left: 1%;
+      top: 45%;
+      display: block;
+    }
+    
+    .piler-høyre {
+      background-color: rgb(255, 255, 255);
+      font-size: 20px;
+      padding: 15px 15px;
+      border-radius: 50%;
+      opacity: 60%;
+      position: absolute;
+      right: 1%;
+      top: 45%;
+      display: block;
+    }
+    
+
+  .leveringsadresse,
+  .kontaktinformasjon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 800px;
+  }
+
+  .kontaktinformasjon {
+    margin-top: 7%;
+  }
+
+  .opplysninger-overskrift {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-left: 2%;
+    margin-left: 11%;
   }
-  
-  .produktliste {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Individual Product Row */
+
   .produkt-rad {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 170px 1fr 40px;
     gap: 20px;
     align-items: center;
     padding-bottom: 20px;
     justify-content: center;
-    width: 300px;
+    width: 800px;
   }
-  
-  
-  .produkt-detaljer {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .produktvalg {
-    display: flex;
-    gap: 20px;
-    margin-top: 10px;
-  }
-  
-  .størrelse,
-  .antall {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-  }
-  
-  .antall-felt {
-    width: 60px;
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    height: 50px;
-  }
-  
-  .antall-felt::-webkit-inner-spin-button,
-  .antall-felt::-webkit-outer-spin-button {
-    opacity: 1;
-    width: 20px;
-    height: 20px;
-    margin: 0;
-  }
-  
-  /* Icons */
+
   .produkt-ikoner {
     display: flex;
-    flex-direction: row;
-    justify-content: left;
+    flex-direction: column;
+    justify-content: center;
     font-size: 20px;
     row-gap: 15px;
-    gap: 15px;
   }
-  
-  .slett-knapp {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  .trash-ikon {
-    color: black;
-  }
-  
-  .slett-knapp {
-    color: red;
-  }
-  
-  /* checkout address section */
-  
-  /* Section Styling */
-  .opplysninger {
-    margin: 20px 0;
+
+  .handlekurv-overskrift {
     width: 100%;
-    border: 1px solid rgb(230, 225, 225);
-    padding-top: 5%;
-    padding-bottom: 5%;
-  }
-  
-  .opplysninger-overskrift {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 5%;
-    margin-left: 2%;
+    margin-left: 22%;
   }
-  
-  /* Form Styling */
-  .adresse-skjema {
-    display: grid;
-    gap: 20px;
-    /* max-width: 600px; */
-    margin: 0 auto;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .leveringsadresse,
-  .kontaktinformasjon {
-    display: grid;
-    /* grid-template-columns: 1fr 1fr; */
-    gap: 15px;
-    width: 300px;
-  }
-  
-  .adresse-tittel,
-  .kontakt-tittel {
-    font-size: 18px;
-    font-weight: bold;
-    grid-column: span 2;
-    margin-bottom: 10px;
-  }
-  
-  .felt-rad {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .felt-rad-full {
-    display: flex;
-    flex-direction: column;
-    grid-column: span 2;
-    margin-bottom: 1%;
-  }
-  
-  .etikett {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .felt {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  /* Button Styling */
-  .knapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 20px;
-    row-gap: 40px;
-  }
-  
-  .lagre-knapp {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-  }
-  
-  .avbryt-lenke {
-    font-size: 16px;
-    color: blue;
-    text-decoration: underline;
-    align-self: center;
-    cursor: pointer;
-  }
-  
-  /* checkout section 3 */
-  
-  /* Section Styling */
-  .levering {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-    align-items: center;
-    border: 1px solid rgb(230, 225, 225);
-    padding-top: 5%;
-    padding-bottom: 5%;
-  }
-  
   .levering-overskrift {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-left: 2%;
+    margin-bottom: 5%;
+    margin-left: 22%;
     width: 100%;
   }
-  
+
   .levering-underoverskrift {
     font-size: 20px;
     font-weight: bold;
     /* margin-bottom: 40px; */
-    margin-left: 2%;
+    margin-left: 22%;
     width: 100%;
   }
-  
-  /* Fieldset Styling */
   .leveringsvalg {
     border: none;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 300px;
+    width: 800px;
   }
-  
-  .leveringsvalg-tittel {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Radio Button Styling */
-  .valg-radio {
-    position: absolute;
-  }
-  
-  /* Label Styling */
-  .valg-etikett {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .valg-etikett:hover {
-    /* background-color: #f9f9f9; */
-    border-color: black;
-  }
-  
-  .valg-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-    padding-left: 1%;
-  }
-  
-  .valg-tittel {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .valg-pris {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .valg-info {
-    font-size: 14px;
-    font-weight: bold;
-    color: gray;
-    margin: 0;
-  }
-  
-  .valg-beskrivelse {
-    font-size: 15px;
-    margin-top: 5px;
-  }
-  
-  /* Radio Button Visuals */
-  .valg-radio {
-    position: absolute;
-    visibility: visible;
-    margin-right: 10px;
-    transform: translateY(15px);
-  }
-  
-  /* checkout section 4 */
-  
-  /* Section Styling */
-  
-  /* Section Styling */
-  .betaling {
-    margin: 20px 0;
-    border: 1px solid rgb(230, 225, 225);
-    padding-top: 5%;
-    padding-bottom: 5%;
-    margin-bottom: 5%;
-  }
-  
   .betaling-overskrift {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-left: 2%;
+    margin-left: 12%;
   }
-  
-  /* Form Styling */
   .betalingsskjema {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 300px;
+    width: 800px;
     margin: 0 auto;
   }
-  
-  /* Card Details */
-  .kortdetaljer {
-    border: none;
-    padding: 0;
-  }
-  
-  .kortdetaljer-tittel {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .felt-rad {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .felt-rad-full {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    grid-column: span 2;
-  }
-  
-  .felt-rad-rad {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-  }
-  
-  .etikett {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .stars{
-    display: flex;
-    gap: 2px;
-    li{
-      list-style: none;
-      margin: 0;
-    }
-  }
-  
-  .felt {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  /* Payment Total */
-  .belop {
-    text-align: center;
-    margin: 1px 0;
-  }
-  
-  .belop-tekst {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .belop-verdi {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  /* Purchase Button */
-  .kjøp-knapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 1px;
-  }
-  
-  .fullfør-knapp {
-    background-color: rgb(58, 58, 58);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    
-  }
-  
-  /* Terms and Conditions */
-  .betingelser {
-    display: flex;
-    margin-top: 20px;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 5%;
-  }
-  
-  .betingelser-tekst {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .samtykke {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 5%;
-  }
-  
-  .samtykke-valg {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .samtykke-kryss {
-    margin-right: 10px;
-  }
-  
-  .checkoutbilde {
-    height: 250px;
-    width: 170px;
-  }
-  
-  .størrelsestabel {
-    font-size: 14px;
-  }
-  
-  .review-kort {
-    background-color: #fff;
-    border-radius: 35px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
-    padding: 20px;
-    width: 100%;
-    text-align: left;
-    border: 1px solid #ddd;
-    margin-bottom: 5%;
-  }
-  
-  .review-card h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .handlekurv-kasse {
-    text-align: center;
-  }
-  
-  .handlekurv-arrow {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-items: center;
-    color: #6a1b9a;
-    font-weight: 400;
-  }
-  
-  .handlekurv-arrowikon {
-    color: #6a1b9a;
-  }
-  
-  .handlekurv-arrow a {
-    color: #6a1b9a;
-  }
-  
-  /* min800 */
-  @media screen and (min-width: 1024px) {
-    .navigasjonsbar {
-      display: grid;
-      grid-template-columns: 30% 50% 15%;
-      margin-bottom: 5%;
-      justify-content: left;
-      align-items: center;
-      gap: 2.5%;
-    }
-    .navliste {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 12% 20% 23% 20% 25%;
-      text-align: center;
-      justify-content: left;
-      padding: 0;
-      margin: 0;
-      height: 70px;
-      align-items: center;
-    }
-    .navlisteikon {
-      display: flex;
-      flex-direction: row;
-      justify-content: right;
-      gap: 10%;
-      padding: 0;
-      margin: 0;
-    }
-  
-    .søkefelt-ikon {
-      width: 70%;
-      position: relative;
-    }
-  
-    .søkeknapp {
-      font-size: 14px;
-      margin: 1%;
-      position: absolute;
-      right: 12px;
-      top: 25%;
-    }
-  
-    .footerseksjoner {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-    }
-  
-    .overskrifter {
-      font-weight: 500;
-    }
-  
-  
-  
-    .bokser {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 5%;
-      margin-top: 2%;
-      gap: 1.2%;
-    }
-  
-    .boks {
-      height: 50px;
-      width: 12.5%;
-      flex-direction: row;
-      border: 1px solid black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 100px;
-      font-size: 16px;
-    }
-  
-    .produktseksjoner {
-      display: grid;
-      grid-template-columns: 32.5% 32.5% 32.5%;
-      justify-content: space-between;
-      margin-bottom: 8%;
-      row-gap: 60px;
-    }
-  
-    
-    .produktbilde {
-      width: 100%;
-      border-radius: 25px;
-    }
-  
-    .Kategorieoverskrift {
-      font-size: 35px;
-    }
-  
-    .kategoribilder {
-      display: grid;
-      /* grid-template-columns: 33% 33% 33%; */
-      grid-template-columns: repeat(3, 1fr); /* 4 equal columns */
-      gap: 12px;
-      grid-auto-rows: 20px;
-      margin-top: 5%;
-    }
-  
-    .kategori-kort:nth-child(1) {
-      grid-row: span 10;
-    }
-    .kategori-kort:nth-child(2) {
-      grid-row: span 10;
-    }
-    .kategori-kort:nth-child(3) {
-      grid-row: span 15;
-    }
-    .kategori-kort:nth-child(4) {
-      grid-column: span 2;
-      grid-row: span 14;
-    }
-    .kategori-kort:nth-child(5) {
-      grid-column: span 1;
-      grid-row: span 9;
-    }
-  
-    
-    .anmeldelseroverskrift {
-      display: flex;
-      justify-content: left;
-      text-align: center;
-      align-items: center;
-      font-size: 35px;
-      margin-top: 35px;
-    }
-  
-    .anmeldelseseksjon {
-      display: flex;
-      flex-direction: row;
-      gap: 0%;
-      max-width: 100vw;
-      overflow-x: scroll;
-    }
-  
-    .anmeldelseseksjon > * {
-      flex-shrink: 0;
-      width: 265px;
-    }
-  
-    .produktdetal {
-      display: grid;
-      grid-template-columns: 60% 40%;
-      gap: 0%;
-      height: 670px;
-    }
-  
-    .lignendeprodukt {
-      display: flex;
-      flex-direction: row;
-      gap: 1%;
-      max-width: 100vw;
-      overflow-x: scroll;
-      margin-bottom: 5%;
-      padding-bottom: 1%;
-    }
-  
-    .lignendeprodukteroverskrift {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  
-    .produktimgseksjon {
-      display: grid;
-      grid-template-columns: 30% 70%;
-      gap: 15px;
-      grid-auto-rows: 15.9px;
-      height: 600px;
-    }
-  
-    .leveringsadresse,
-    .kontaktinformasjon {
-      display: grid;
-      /* grid-template-columns: 1fr 1fr; */
-      gap: 15px;
-      width: 800px;
-    }
-  
-    .kontaktinformasjon {
-      margin-top: 7%;
-    }
-  
-    .opplysninger-overskrift {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      margin-left: 11%;
-    }
-  
-    .produkt-rad {
-      display: grid;
-      grid-template-columns: 170px 1fr 40px;
-      gap: 20px;
-      align-items: center;
-      padding-bottom: 20px;
-      justify-content: center;
-      width: 800px;
-    }
-  
-    .produkt-ikoner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 20px;
-      row-gap: 15px;
-    }
-  
-    .handlekurv-overskrift {
-      width: 100%;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 5%;
-      margin-left: 22%;
-    }
-    .levering-overskrift {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 5%;
-      margin-left: 22%;
-      width: 100%;
-    }
-  
-    .levering-underoverskrift {
-      font-size: 20px;
-      font-weight: bold;
-      /* margin-bottom: 40px; */
-      margin-left: 22%;
-      width: 100%;
-    }
-    .leveringsvalg {
-      border: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 800px;
-    }
-    .betaling-overskrift {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      margin-left: 12%;
-    }
-    .betalingsskjema {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 800px;
-      margin: 0 auto;
-    }
-  }
+}

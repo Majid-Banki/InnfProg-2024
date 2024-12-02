@@ -6,41 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <title>Checkout</title>
+  <title>Document</title>
 </head>
 
 <body>
   <!--Søkefelt-->
   <nav class="navigasjonsbar">
+    <ul>
     <li class="søkefelt-ikon">
-      <input type="tekst" placeholder="Søk her" class="søkefelt" />
+      <input type="text" placeholder="Søk her" class="søkefelt" />
       <i class="fas fa-search søkeknapp"></i>
     </li>
+  </ul>
     <ul class="navliste">
       <li><a class="hjemlink" href="index.html">Hjem</a></li>
-      <li><a class="produktlink" href="produkt.html">Produkter</a></li>
-      <li>
-        <a class="Logo" href="index.html"><b>Logo</b></a>
+      <li><a class="produktlink" href="#reklame">Produkter</a></li>
+      <li class="logo">
+        <a class="logolink" href="index.html"><b>Logo</b></a>
       </li>
-      <li><a class="kategorilink" href="index.html">Kategorier</a></li>
-      <li><a class="kontaktlink" href="index.html">kontakt oss</a></li>
+      <li><a class="kategorilink" href="#kategori">Kategorier</a></li>
+      <li><a class="kontaktlink" href="#footer">kontakt oss</a></li>
     </ul>
     <ul class="navlisteikon">
       <li>
-        <a href="index.html"><span class="sr-only">bruker</span><i class="fa-regular fa-user"></i></a>
+        <a href="index.html"
+          ><span class="sr-only">bruker</span
+          ><i class="fa-regular fa-user"></i
+        ></a>
       </li>
       <li>
-        <a href="index.html"><span class="sr-only">Favoriter</span><i class="fa-regular fa-heart"></i></a>
+        <a href="index.html"
+          ><span class="sr-only">Favoriter</span
+          ><i class="fa-regular fa-heart"></i
+        ></a>
       </li>
       <li>
-        <a href="checkout.html"><span class="sr-only">handlekurv</span><i class="fas fa-shopping-cart"></i></a>
+        <a href="checkout.html"
+          ><span class="sr-only">handlekurv</span
+          ><i class="fas fa-shopping-cart"></i
+        ></a>
       </li>
     </ul>
   </nav>
 
 
 
-
+<ul>
   <li class="handlekurv-arrow">
     <a href="index.html">
       <p><i class="fas fa-arrow-left handlekurv-arrowikon"></i></p>
@@ -49,13 +60,15 @@
       <p>Fortsett og handle</p>
     </a>
   </li>
+</ul>
   <h1 class="handlekurv-kasse">Kasse</h1>
   <section class="handlekurv">
+    <section class="shoppingbag">
     <h1 class="handlekurv-overskrift">1. SHOPPINGBAGEN DIN</h1>
     <ul class="produktliste">
       <!-- Product 1 -->
       <li class="produkt-rad">
-        <img src="/images/" alt="Produktbilde" class="checkoutbilde" />
+        <img src="/bilder/nike-5128118_640.jpg" alt="Produktbilde" class="checkoutbilde" />
         <article class="produkt-detaljer">
           <header>
             <h2 class="produktnavn">PRODUCT NAME</h2>
@@ -79,15 +92,15 @@
             </section>
           </section>
         </article>
-        <nav class="produkt-ikoner">
+        <ul class="produkt-ikoner">
       <li>
         <i class="fa-regular fa-heart"></i>
       </li>
       <li>
         <i class="fa-solid fa-trash trash-ikon"></i>
       </li>
-      </nav>
-      </li>
+    </ul>
+     
 
       <!-- Product 2 -->
       <li class="produkt-rad">
@@ -115,15 +128,15 @@
             </section>
           </section>
         </article>
-        <nav class="produkt-ikoner">
+        <ul class="produkt-ikoner">
       <li>
         <i class="fa-regular fa-heart"></i>
       </li>
       <li>
         <i class="fa-solid fa-trash trash-ikon"></i>
       </li>
-      </nav>
-      </li>
+    </ul>
+      
       <li class="produkt-rad">
         <img src="/bilder/nike-5128118_640.jpg" alt="Produktbilde" class="checkoutbilde" />
         <article class="produkt-detaljer">
@@ -134,8 +147,8 @@
           </header>
           <section class="produktvalg">
             <section class="størrelse">
-              <label for="størrelse2">Størrelse</label>
-              <select id="størrelse2" class="størrelse-nedtrekksliste">
+              <label for="størrelse3">Størrelse</label>
+              <select id="størrelse3" class="størrelse-nedtrekksliste">
                 <option value="XS">XS</option>
                 <option value="S">S</option>
                 <option value="M">M</option>
@@ -144,36 +157,36 @@
               </select>
             </section>
             <section class="antall">
-              <label for="antall2">Antall</label>
-              <input id="antall2" type="number" value="1" min="1" class="antall-felt" />
+              <label for="antall3">Antall</label>
+              <input id="antall3" type="number" value="1" min="1" class="antall-felt" />
             </section>
           </section>
         </article>
-        <nav class="produkt-ikoner">
+        <ul class="produkt-ikoner">
       <li>
         <i class="fa-regular fa-heart"></i>
       </li>
       <li>
         <i class="fa-solid fa-trash trash-ikon"></i>
       </li>
-      </nav>
-      </li>
     </ul>
-  </section>
-
+  </ul>
+</section>
+    
+  
   <section class="opplysninger">
     <h2 class="opplysninger-overskrift">2. DINE OPPLYSNINGER</h2>
 
     <!-- Address Section -->
     <form class="adresse-skjema">
       <section class="leveringsadresse">
-        <section class="felt-rad">
+        <section class="felt-rad1">
           <label for="fornavn" class="etikett">
-            Leveringsadresse Fornavn</label>
+            Leveringsadresse <br>Fornavn</label>
           <input type="text" id="fornavn" name="fornavn" class="felt" placeholder="Nora*" required />
         </section>
-        <section class="felt-rad">
-          <label for="etternavn" class="etikett">Etternavn</label>
+        <section class="felt-rad2">
+          <label for="etternavn" class="etikett">Etternavn<br></label>
           <input type="text" id="etternavn" name="etternavn" class="felt" placeholder="Nordman*" required />
         </section>
 
@@ -220,30 +233,32 @@
       <!-- Option 1 -->
       <article class="valg-alternativ">
         <input type="radio" id="express-hjemlevering" name="leveringsvalg" class="valg-radio" />
+        
         <label for="express-hjemlevering" class="valg-etikett">
-          <header class="valg-header">
+          <span class="valg-header">
             <span class="valg-tittel">Express Hjemlevering</span>
             <span class="valg-pris">59 kr <i class="fa-solid fa-truck-fast"></i></span>
-          </header>
-          <p class="valg-info">3-4 Virkedager</p>
-          <p class="valg-beskrivelse">
-            Bestill hverdag før 08:00* for levering neste arbeidsdag. Leveres
-            hjem til deg før frokost mandag til lørdag. *For levering til
-            postnummer 4000-7999 er leveringstiden 2 arbeidsdager, for
-            postnummer 8000-9999 er leveringstiden 3 arbeidsdager.
-          </p>
-        </label>
+          </span>
+      
+        <span class="valg-info">3-4 Virkedager</span>
+        <span class="valg-beskrivelse">
+          Bestill hverdag før 08:00* for levering neste arbeidsdag. Leveres
+          hjem til deg før frokost mandag til lørdag. *For levering til
+          postnummer 4000-7999 er leveringstiden 2 arbeidsdager, for
+          postnummer 8000-9999 er leveringstiden 3 arbeidsdager.
+        </span>
+      </label>
       </article>
 
       <!-- Option 2 -->
       <article class="valg-alternativ">
         <input type="radio" id="express-utlevering" name="leveringsvalg" class="valg-radio" />
         <label for="express-utlevering" class="valg-etikett">
-          <header class="valg-header">
+          <span class="valg-header">
             <span class="valg-tittel">Ekspress Pakke til utleveringssted</span>
             <span class="valg-pris">59 kr <i class="fa-brands fa-dhl"></i></span>
-          </header>
-          <p class="valg-info">1-3 Virkedager</p>
+          </span>
+          <span class="valg-info">1-3 Virkedager</span>
         </label>
       </article>
 
@@ -251,27 +266,22 @@
       <article class="valg-alternativ">
         <input type="radio" id="standard-hjemlevering" name="leveringsvalg" class="valg-radio" />
         <label for="standard-hjemlevering" class="valg-etikett">
-          <header class="valg-header">
+          <span class="valg-header">
             <span class="valg-tittel">Standard Hjemlevering</span>
             <span class="valg-pris">Gratis <i class="fa-solid fa-box"></i></span>
-          </header>
-          <p class="valg-info">5-8 Virkedager</p>
-          <p class="valg-beskrivelse">
+          </span>
+          <span class="valg-info">5-8 Virkedager</span>
+          <span class="valg-beskrivelse">
             Leveres hjem til deg før frokost mandag til lørdag innen 4-7
             hverdager.
-          </p>
-        </label> 
-      </article> 
-    </section> 
-  </section> 
-  
-  Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-  Rober Labrador profilbilde
-  Rober Labrador
-  
-  <section class="betaling"> 
-    <h2 class="betaling-overskrift">4. BETALING</h2> 
-    <!-- Card Payment Section --> 
+          </span>
+        </label>
+      </article>
+    </section>
+  </section>
+  <section class="betaling">
+    <h2 class="betaling-overskrift">4. BETALING</h2>
+    <!-- Card Payment Section -->
     <form class="betalingsskjema">
       <fieldset class="kortdetaljer">
         <legend class="kortdetaljer-tittel">
@@ -302,7 +312,7 @@
 
 
 
-      
+
 
       <!-- Total Amount Section -->
       <section class="belop">
@@ -331,10 +341,11 @@
           <input type="checkbox" name="tekstmeldinger" class="samtykke-kryss" />
           Jeg ønsker å motta tekstmeldinger med tilbud og nyheter.
         </label>
-
+      </section>
     </form>
   </section>
 </section>
+
   <footer class="footer">
     <section class="footer-logo-seksjon">
       <p class="footer-logo">Logo</p>
@@ -348,17 +359,17 @@
         <h4 class="overskrifter">Kontakt</h4>
         <ul class="fotlister kontakt-info">
           <li>
-            <i class="fas fa-map-marker-alt"></i><b>Adresse:</b>Torvaldlyst
-            15, 1738
+            <i class="fas fa-map-marker-alt"></i><b>Adresse:</b>Torpveien
+            189, 1738
           </li>
           <li>
-            <i class="fas fa-phone-alt"></i><b>Telefon: </b>+47 96812813
+            <i class="fas fa-phone-alt"></i><b>Telefon: </b> 69 60 80 00
           </li>
           <li>
-            <i class="fas fa-envelope"></i><b>E-post: </b>asheka@hiof.no
+            <i class="fas fa-envelope"></i><b>E-post: </b>halden@hiof.no
           </li>
           <li>
-            <i class="fas fa-clock"></i><b>Åpningstider: </b>07:30-16.00
+            <i class="fas fa-clock"></i><b>Åpningstider: </b>Stenger 15:00
           </li>
         </ul>
       </section>
